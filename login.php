@@ -31,17 +31,17 @@
         </div>
         <div class="row">
             <div class="col-12">
-            <h1>Registrazione</h1>
-            <form action="controller/controllerLogin.php" method="POST">
+                <h1>Login</h1>
+                <form action="controller/controllerLogin.php" method="POST">
 
-                <label for="email">Email:</label>
-                <input type="email" name="email" required><br>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" required><br>
 
-                <label for="passwor">Password:</label>
-                <input type="password" name="passwor" required><br>
-                <p class="text-danger"><?php echo $messaggioErrore; ?></p>
-                <input type="submit" value="Accedi">
-            </form>
+                    <label for="passwor">Password:</label>
+                    <input type="password" name="passwor" required><br>
+                    <p class="text-danger"><?php echo $messaggioErrore; ?></p>
+                    <input type="submit" value="Accedi">
+                </form>
             <p>Non hai ancora un profilo? <a href="register.php">Registrati</a></p>
             </div>
         </div>

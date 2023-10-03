@@ -25,7 +25,7 @@
         }
     } else {
         session_start();
-        $_SESSION['errore'] = "Password errata";
+        $_SESSION['errore'] = "Email non presente";
             header("Location: ../login.php");    
     }
 
