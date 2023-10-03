@@ -1,8 +1,12 @@
 <?php
-    if (isset($_GET["messaggio"])) {
-        $messaggioErrore = $_GET["messaggio"];
+    session_start();
+    // Verifica se c'è un messaggio di errore
+    if (isset($_SESSION['errore'])) {
+        $messaggioErrore = $_SESSION['errore'];
+        // Rimuovi il messaggio di errore dalla variabile di sessione
+        unset($_SESSION['errore']);
     } else {
-        $messaggioErrore = "";
+        $messaggioErrore = ""; // Nessun errore
     }
 ?>
 
@@ -28,7 +32,7 @@
         <div class="row">
             <div class="col-12">
             <h1>Registrazione</h1>
-            <form action="controller.php" method="POST">
+            <form action="controller/controllerLogin.php" method="POST">
 
                 <label for="email">Email:</label>
                 <input type="email" name="email" required><br>
@@ -38,6 +42,7 @@
                 <p class="text-danger"><?php echo $messaggioErrore; ?></p>
                 <input type="submit" value="Accedi">
             </form>
+            <p>Non hai ancora un profilo? <a href="register.php">Registrati</a></p>
             </div>
         </div>
     </div>

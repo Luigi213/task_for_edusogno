@@ -1,6 +1,6 @@
 <?php
     // Connessione al database (sostituisci con i tuoi dati di connessione)
-    require_once("config.php");
+    require_once("../config.php");
 
     // Ottenimento dei dati dal modulo di accesso
     $email = $_POST['email'];
@@ -13,15 +13,20 @@
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         if ($passwor == $row['password']) {
-            // Accesso riuscito, reindirizza l'utente alla pagina del profilo
-            header("Location: index.php");
+            session_start();
+            $_SESSION['user_id'] = $row['id']; 
+            $_SESSION['nome'] = $row['nome'];
+            $_SESSION['cognome'] = $row['cognome'];
+            header("Location: ../page.php");
         } else {
-            $messaggioErrore = "Password errata";
-            header("Location: index.php?messaggio=" . urlencode($messaggioErrore));
+            session_start();
+            $_SESSION['errore'] = "Password errata";
+            header("Location: ../login.php");
         }
     } else {
-        $messaggioErrore = "Utente non trovato";
-        header("Location: index.php?messaggio=" . urlencode($messaggioErrore));
+        session_start();
+        $_SESSION['errore'] = "Password errata";
+            header("Location: ../login.php");    
     }
 
     $conn->close();
