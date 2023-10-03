@@ -1,12 +1,13 @@
 <?php
 class Utente {
     public function up($conn) {
-        $sql = "CREATE TABLE utente (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            nome VARCHAR(255) NOT NULL,
-            cognome VARCHAR(255) NOT NULL,
-            email VARCHAR(255) NOT NULL,
-            password VARCHAR(255) NOT NULL
+        $sql = " CREATE TABLE IF NOT EXISTS utente (
+            id int NOT NULL AUTO_INCREMENT,
+            nome varchar(45),
+            cognome varchar(45),
+            email varchar(255),
+            password varchar(255),
+            PRIMARY KEY (id)
         )";
 
         if ($conn->query($sql) === TRUE) {
@@ -17,7 +18,35 @@ class Utente {
     }
 
     public function down($conn) {
-        $sql = "DROP TABLE utenti";
+        $sql = "DROP TABLE utente";
+
+        if ($conn->query($sql) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+class Evento {
+    public function up($conn) {
+        $sql = " CREATE TABLE IF NOT EXISTS evento (
+            id int NOT NULL AUTO_INCREMENT,
+            attendees text,
+            nome_evento varchar(255),
+            data_evento datetime,
+            PRIMARY KEY (id)
+        )";
+
+        if ($conn->query($sql) === TRUE) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function down($conn) {
+        $sql = "DROP TABLE evento";
 
         if ($conn->query($sql) === TRUE) {
             return true;

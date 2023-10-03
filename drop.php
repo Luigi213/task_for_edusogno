@@ -1,29 +1,22 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "db-edusogno";
+    require_once("config.php");
 
-$mysqli = new mysqli($servername, $username, $password, $dbname);
+    // Array dei nomi delle tabelle da cancellare
+    $tableNames = array("evento", "utente");
 
-// Verifica se la connessione ha avuto successo
-if ($mysqli->connect_error) {
-    die("Errore di connessione al database: " . $mysqli->connect_error);
-}
+    // Itera attraverso l'array e cancella ciascuna tabella
+    foreach ($tableNames as $tableName) {
+        // Comando SQL per cancellare la tabella
+        $sql = "DROP TABLE IF EXISTS $tableName";
 
-// Nome della tabella da cancellare
-$tableName = "utente";
+        // Esegui il comando SQL
+        if ($conn->query($sql) === TRUE) {
+            echo "Tabella $tableName cancellata con successo." . "\n";
+        } else {
+            echo "Errore nella cancellazione della tabella $tableName: " . $mysqli->error . "\n";
+        }
+    }
 
-// Comando SQL per cancellare la tabella
-$sql = "DROP TABLE $tableName";
-
-// Esegui il comando SQL
-if ($mysqli->query($sql) === TRUE) {
-    echo "Tabella $tableName cancellata con successo.";
-} else {
-    echo "Errore nella cancellazione della tabella: " . $mysqli->error;
-}
-
-// Chiudi la connessione al database
-$mysqli->close();
+    // Chiudi la connessione al database
+    $conn->close();
 ?>

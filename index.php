@@ -1,5 +1,9 @@
 <?php
-
+    if (isset($_GET["messaggio"])) {
+        $messaggioErrore = $_GET["messaggio"];
+    } else {
+        $messaggioErrore = "";
+    }
 ?>
 
 
@@ -31,7 +35,7 @@
 
                 <label for="passwor">Password:</label>
                 <input type="password" name="passwor" required><br>
-
+                <p class="text-danger"><?php echo $messaggioErrore; ?></p>
                 <input type="submit" value="Accedi">
             </form>
             </div>
