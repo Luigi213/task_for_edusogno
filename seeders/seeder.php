@@ -1,6 +1,8 @@
 <?php
 require("pojo/evento.php");
 require("pojo/utente.php");
+require("pojo/ruolo.php");
+require("pojo/utente_ruoli.php");
 
 // Array di coppie email e password da inserire
 class UtenteS {
@@ -10,7 +12,7 @@ class UtenteS {
         $utente2 = new Utente("ciao2", "ciao123", "ciao2@mail.com", "ciao2");    
         $utente3 = new Utente("ciao3", "ciao1234", "ciao3@mail.com", "ciao3");    
         // Query SQL preparata per l'inserimento dei dati
-        $sql = "INSERT INTO utente (nome, cognome, email, password) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO utenti (nome, cognome, email, password) VALUES (?, ?, ?, ?)";
         
         // Preparazione della dichiarazione SQL
         $stmt = $conn->prepare($sql);
@@ -41,7 +43,7 @@ class EventoS {
 
         
         // Query SQL preparata per l'inserimento dei dati
-        $sql = "INSERT INTO `evento`(`attendees`, `nome_evento`, `data_evento`) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO `eventi`(`attendees`, `nome_evento`, `data_evento`) VALUES (?, ?, ?)";
 
         // Preparazione della dichiarazione SQL
         $stmt = $conn->prepare($sql);
@@ -61,5 +63,46 @@ class EventoS {
     }
 }
 
+class RuoloS{
+    public function upS($conn){
+
+        $ruoloUser = new Ruolo("USER");
+        $ruoloAdmin = new Ruolo("ADMIN");
+
+        // Query SQL preparata per l'inserimento dei dati
+        $sql = "INSERT INTO `ruoli`(`nome`) VALUES (?)";
+
+        // Preparazione della dichiarazione SQL
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bind_param("s", $ruoloUser->nome);
+        $stmt->execute();
+
+        $stmt->bind_param("s", $ruoloAdmin->nome);
+        $stmt->execute();
+        
+        $stmt->close();
+        
+        return true;
+    }
+
+}
+
+class Utente_ruoloS{
+    public function upS($conn){
+        $admin = new Utente_ruoli(1, 2);
+
+        $sql = "INSERT INTO utente_ruoli (user_id, role_id) VALUES (?, ?)";
+
+        $stmt = $conn->prepare($sql);
+
+        $stmt->bind_param("ii", $admin->user_id, $admin->role_id);
+        $stmt->execute();
+
+        $stmt->close();
+        
+        return true;
+    }
+}
 
 ?>

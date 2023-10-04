@@ -2,7 +2,7 @@
     require_once("config.php");
 
     // Array dei nomi delle tabelle da cancellare
-    $tableNames = array("evento", "utente");
+    $tableNames = array("eventi", "utente_ruoli", "ruoli" , "utenti");
 
     // Itera attraverso l'array e cancella ciascuna tabella
     foreach ($tableNames as $tableName) {

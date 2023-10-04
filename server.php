@@ -9,7 +9,9 @@
     // Lista delle classi di migrazione
     $migrazioni = [
         new UtenteM(),
-        new EventoM()
+        new EventoM(),
+        new RuoloM(),
+        new Utente_ruoloM()
     ];
 
     foreach ($migrazioni as $migrazione) {
@@ -28,7 +30,9 @@
 
     $seeders = [
         new UtenteS(),
-        new EventoS()
+        new EventoS(),
+        new RuoloS(),
+        new Utente_ruoloS()
     ];
 
     foreach ($seeders as $seeder) {
