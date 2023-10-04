@@ -1,5 +1,5 @@
 <?php
-class Utente {
+class UtenteM {
     public function up($conn) {
         $sql = " CREATE TABLE IF NOT EXISTS utente (
             id int NOT NULL AUTO_INCREMENT,
@@ -28,7 +28,7 @@ class Utente {
     }
 }
 
-class Evento {
+class EventoM {
     public function up($conn) {
         $sql = " CREATE TABLE IF NOT EXISTS evento (
             id int NOT NULL AUTO_INCREMENT,
