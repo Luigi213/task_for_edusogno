@@ -2,7 +2,7 @@
     require_once("config.php");
 
     // Query SQL per selezionare tutti i dati dalla tabella "utenti"
-    $sql = "SELECT * FROM evento";
+    $sql = "SELECT * FROM eventi";
 
     // Esegui la query
     $result = $conn->query($sql);

@@ -27,6 +27,7 @@
 <body>
     <div class="container">
         <div class="row">
+        <p><a href="../logout.php">logout</a></p>
             <div class="col-12">
                 <h1> Ciao <?php echo $nome; echo " " . $cognome; ?></h1>
             </div>
