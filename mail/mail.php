@@ -3,29 +3,38 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Include la libreria PHPMailer
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
-$mail = new PHPMailer(true);
 
-try {
-    $mail->isSMTP();
-    $mail->Host = 'smtp.mailtrap.io';
-    $mail->SMTPAuth = true;
-    $mail->Username = 'eba8958f084e12';
-    $mail->Password = 'f194e83a1213be';
-    $mail->SMTPSecure = 'tls';
-    $mail->Port = 2525;
+if($_SERVER["REQUEST_METHOD"] === "GET"){
 
-    // Altri settaggi del messaggio
-    $mail->setFrom('mittente@example.com', 'Mittente');
-    $mail->addAddress('destinatario@example.com', 'Destinatario');
-    $mail->Subject = 'Oggetto dell\'email';
-    $mail->Body = 'Contenuto del messaggio';
+    $mail = new PHPMailer(true);
 
-    $mail->send();
-    echo 'Email inviata con successo';
-} catch (Exception $e) {
-    echo 'Errore nell\'invio dell\'email: ', $mail->ErrorInfo;
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp.mailtrap.io';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'eba8958f084e12';
+        $mail->Password = 'f194e83a1213be';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 2525;
+    
+        // Altri settaggi del messaggio
+        $mail->setFrom('mittente@example.com', 'Mittente');
+        $mail->addAddress('destinatario@example.com', 'Destinatario');
+        $mail->Subject = 'Oggetto dell\'email';
+        $mail->isHTML(true);
+        $mail->Body = '<div class="container">
+                            <h1>Recupero password</h1>
+                            <p>
+                                Ecco il link per poter recuperare la password <a
+                                    href="http://localhost/boolean/task_for_edusogno/password.php">clicca qui</a>
+                            </p>
+                        </div>';
+        $mail->send();
+    } catch (Exception $e) {
+        echo 'Errore nell\'invio dell\'email: ', $mail->ErrorInfo;
+    }
 }
 
 
