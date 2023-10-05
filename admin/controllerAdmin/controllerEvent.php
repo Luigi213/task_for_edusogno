@@ -29,6 +29,12 @@
 
                 $stmt->bind_param("sss", $attendees, $nome_evento, $data_evento);
                 $stmt->execute();
+                
+                if ($stmt->execute()) {
+                    echo "Dati aggiunti con successo.";
+                } else {
+                    echo "Errore nella aggiunta dei dati: " . $stmt->error;
+                }
 
                 $conn->close();
                 $stmt->close();
@@ -64,9 +70,24 @@
 
             } elseif ($action === "delete") {
 
-                $id_elimina = $_POST["id_elimina"];
+                $id_delete = $_POST["id_delete"];
                 
+                $sql = "DELETE FROM `eventi` WHERE `id` = ?";
 
+                $stmt = $conn->prepare($sql);
+
+                $stmt->bind_param("i", $id_delete );
+
+                if ($stmt->execute()) {
+                    echo "Record eliminato con successo.";
+                } else {
+                    echo "Errore nell'eliminazione del record: " . $stmt->error;
+                }
+
+                $stmt->close();
+                $conn->close();
+
+                header("Location: admin.php");
             }
         }
     }

@@ -85,8 +85,9 @@ if (!in_array('ADMIN', $_SESSION['ruoli'])) {
                                                             </button>
 
                                                         </form>
-                                                        <form action='controllerAdmin/controllerEvent.php' method='POST'>
+                                                        <form method='POST'>
                                                             <input type='hidden' name='action' value='delete'>
+                                                            <input type='hidden' name='id_delete' value='" . $evento["id"] . "'>
                                                             <button class='btn' type='submit'>
                                                                 <i class='fa-solid fa-dumpster-fire'></i>
                                                             </button>
