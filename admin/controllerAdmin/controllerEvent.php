@@ -28,7 +28,6 @@
                 $stmt = $conn->prepare($sql);
 
                 $stmt->bind_param("sss", $attendees, $nome_evento, $data_evento);
-                $stmt->execute();
                 
                 if ($stmt->execute()) {
                     echo "Dati aggiunti con successo.";
