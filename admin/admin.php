@@ -78,10 +78,18 @@ if (!in_array('ADMIN', $_SESSION['ruoli'])) {
                                                 echo "<td>" . $evento['data_evento'] . "</td>";
                                                 echo "<td>" . $evento['attendees'] . "</td>";
                                                 echo "<td class='d-flex justify-content-between'>
-                                                        <a href='modifica.php'><i class='fa-solid fa-pen-to-square'></i></a>
+                                                        <form action='modifica.php' method='POST'>
+                                                            <input type='hidden' name='id' value='" . $evento["id"] . "'>
+                                                            <button class='btn' type='submit'>
+                                                                <i class='fa-solid fa-pen-to-square'></i>
+                                                            </button>
+
+                                                        </form>
                                                         <form action='controllerAdmin/controllerEvent.php' method='POST'>
                                                             <input type='hidden' name='action' value='delete'>
-                                                            <a type='submit'><i class='fa-solid fa-dumpster-fire'></i></a> 
+                                                            <button class='btn' type='submit'>
+                                                                <i class='fa-solid fa-dumpster-fire'></i>
+                                                            </button>
                                                         </form>
                                                     </td>";
                                                 echo "</tr>";

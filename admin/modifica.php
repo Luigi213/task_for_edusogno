@@ -1,5 +1,37 @@
 <?php
+    session_start();
 
+    require_once("controllerAdmin/controllerEvent.php");
+    require_once("../config.php");
+
+    if (!isset($_SESSION['user_id'])) {
+        // L'utente non è autenticato, reindirizza alla pagina di accesso
+        header("Location: ../login.php");
+        exit();
+    }
+
+    // Verifica il ruolo dell'utente
+    if (!in_array('ADMIN', $_SESSION['ruoli'])) {
+        // L'utente non ha il ruolo di amministratore, reindirizza a una pagina di errore o alla home page
+        header("Location: ../login.php");
+        exit();
+    }
+
+    if (isset($_POST['id'])) {
+        $id_evento = $_POST['id'];
+
+        $sql = "SELECT * FROM eventi WHERE id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $id_evento);
+        $stmt->execute();
+        $results = $stmt->get_result();
+        foreach($results as $result){
+
+            $nome_evento = $result["nome_evento"];
+            $data_evento = $result["data_evento"];
+            $attendees = $result["attendees"];
+        }
+    } 
 ?>
 
 <!DOCTYPE html>
@@ -20,25 +52,22 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Registrazione</h1>
-                <form id="controllerAdmin/controllerEvent.php" method="POST">
-                    <input type='hidden' name='action' value='edit'>
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required><br>
-
-                    <label for="cognome">Cognome:</label>
-                    <input type="text" id="cognome" name="cognome" required><br>
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required><br>
-
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required><br>
-
-                    <input type="submit" value="Registrati">
+                <h1>Modifica</h1>
+                <form method="POST">
+                    <input type="hidden" name="action" value="update">
+                    <input type="hidden" name="id_evento" value="<?php echo $id_evento ?>">
+                    
+                    <label for="nome_evento">Nome dell'evento:</label>
+                    <input type="text" name="nome_evento" value="<?php echo $nome_evento ?>">
+                    
+                    <label for="data_evento">Data dell'evento:</label>
+                    <input type="text" name="data_evento" value="<?php echo $data_evento ?>">
+                    
+                    <label for="attendees">Partecipanti:</label>
+                    <input type="text" name="attendees" value="<?php echo $attendees ?>">
+                    
+                    <input type="submit" value="Modifica">
                 </form>
-
-                <div id="messaggio-registrazione"></div>
             </div>
         </div>
     </div>

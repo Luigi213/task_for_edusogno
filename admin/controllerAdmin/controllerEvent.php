@@ -30,6 +30,7 @@
                 $stmt->bind_param("sss", $attendees, $nome_evento, $data_evento);
                 $stmt->execute();
 
+                $conn->close();
                 $stmt->close();
 
                 header("Location: admin.php");
@@ -37,11 +38,29 @@
 
             } elseif ($action === "update") {
 
-                $id_modifica = $_POST["id_modifica"];
-                $nome_modifica = $_POST["nome_modifica"];
-                $email_modifica = $_POST["email_modifica"];
-                $eta_modifica = $_POST["eta_modifica"];
+                echo "sono stato modificato";
+
+                $id_evento = $_POST["id_evento"];
+                $nome_evento = $_POST["nome_evento"];
+                $data_evento = $_POST["data_evento"];
+                $attendees = $_POST["attendees"];
+
+                $sql = "UPDATE `eventi` SET `attendees` = ?, `data_evento` = ?, `nome_evento` = ? WHERE `id` = ?";
+
+                $stmt = $conn->prepare($sql);
+
+                $stmt->bind_param("sssi", $attendees, $data_evento, $nome_evento, $id_evento);
+
+                if ($stmt->execute()) {
+                    echo "Dati modificati con successo.";
+                } else {
+                    echo "Errore nella modifica dei dati: " . $stmt->error;
+                }
+
+                $stmt->close();
+                $conn->close();
                 
+                header("Location: admin.php");
 
             } elseif ($action === "delete") {
 

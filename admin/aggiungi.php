@@ -41,7 +41,7 @@
         <div class="row">
             <div class="col-12">
                 <h1>Nuovo evento</h1>
-                <form id="controllerAdmin/controllerEvent.php" method="POST">
+                <form method="POST">
                     <input type='hidden' name='action' value='create'>
                     <label for="nome_evento">Nome evento:</label>
                     <input type="text" id="nome_evento" name="nome_evento" required><br>
