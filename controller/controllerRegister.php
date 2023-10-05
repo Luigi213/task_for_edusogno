@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $password = $_POST["password"];
 
     // Prepara la query SQL per inserire l'utente nel database
-    $sql = "INSERT INTO utente (nome, cognome, email, password) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO utenti (nome, cognome, email, password) VALUES (?, ?, ?, ?)";
 
     // Crea una dichiarazione preparata
     $stmt = $conn->prepare($sql);

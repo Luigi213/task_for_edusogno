@@ -1,5 +1,7 @@
 <?php
     session_start();
+
+    require_once("eventi.php");
     // Verifica se c'è un messaggio di errore
     if (isset($_SESSION['errore'])) {
         $messaggioErrore = $_SESSION['errore'];
@@ -28,14 +30,14 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <img src="image/Group 181.png" alt="ciao">
+                <img src="image/Group_181.png" alt="ciao">
             </div>
         </div>
         <div class="row">
             <div class="col-12">
                 <h1>Login</h1>
                 <form action="controller/controllerLogin.php" method="POST">
-
+                    
                     <label for="email">Email:</label>
                     <input type="email" name="email" required><br>
 

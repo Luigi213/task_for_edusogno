@@ -38,6 +38,26 @@
                 header("Location: ../admin/admin.php");
             } else {
                 // L'utente è un utente normale, reindirizza alla pagina degli utenti normali
+
+                $sql = "SELECT attendees, nome_evento, data_evento FROM eventi WHERE attendees LIKE '%$email%'";
+
+                // Esegui la query
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        // Ottieni l'indirizzo email e il nome dell'evento dalla riga del risultato
+                        $eventi[] = $row;
+                    }
+                } else {
+                    echo "Nessun evento trovato per l'utente loggato.";
+                }
+                
+
+                // Chiudi la connessione al database
+                $conn->close();
+                
+                $_SESSION['eventi'] = $eventi;
                 header("Location: ../page.php");
             }
         } else {
