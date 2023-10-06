@@ -4,7 +4,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'GET',
-            url: 'mail/mail.php', // Percorso del tuo script PHP per l'invio dell'email
+            url: 'mail/mail.php',
             success: function (response) {
                 console.log("Richiesta inviata con successo");
             },
