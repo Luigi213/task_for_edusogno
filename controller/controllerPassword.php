@@ -8,12 +8,12 @@
         $newPassword = $_POST['password'];
     
         // Imposta la modifa della password
-        $sql = "UPDATE utente SET password = '$newPassword' WHERE email = '$email'";
+        $sql = "UPDATE utenti SET password = '$newPassword' WHERE email = '$email'";
         $result = $conn->query($sql);
         
         if($result === TRUE){
             var_dump($result);
-            $sqlMail = "SELECT * FROM utente WHERE email = '$email' LIMIT 1";
+            $sqlMail = "SELECT * FROM utenti WHERE email = '$email' LIMIT 1";
             $resultMail = $conn->query($sqlMail);
     
             var_dump($resultMail->num_rows > 0);

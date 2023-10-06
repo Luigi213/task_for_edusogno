@@ -41,7 +41,7 @@ if (!in_array('ADMIN', $_SESSION['ruoli'])) {
                         <img  class="img-edu"src="../image/Group_181.png" alt="logo">
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-center">
-                        <a class="logout p-2" href="logout.php">logout</a>
+                        <a class="logout p-2" href="../logout.php">logout</a>
                     </div>
                 </div>
             </div>
