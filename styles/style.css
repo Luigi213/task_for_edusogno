@@ -66,6 +66,14 @@ input {
     border-color: #134077;
 }
 
+.box-page {
+    background-color: white;
+    border: 1px;
+    border-style: solid;
+    border-radius: 19px;
+    border-color: #134077;
+}
+
 .pass {
     position: relative;
 }
@@ -88,6 +96,15 @@ button {
     border-radius: 11px;
 }
 
+.logout {
+    all: unset;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    background-color: #0057FF;
+    border-radius: 11px;
+}
+
 .p-cm {
     font-size: 13px;
     margin-top: 30px;
@@ -95,6 +112,18 @@ button {
 
 a {
     color: black;
+}
+
+.mb-cm {
+    margin-bottom: 89px;
+}
+
+.btn-sp {
+    width: 280px;
+}
+
+.col-sp {
+    width: 86%;
 }
 
 /* FIGURE */
