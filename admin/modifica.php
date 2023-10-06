@@ -44,7 +44,7 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="../styles/style.css">
-    <script src="js/register.js"></script>
+    <script src="../js/avviso.js"></script>
     <title>Document</title>
 
 </head>
@@ -87,7 +87,7 @@
                                             <input class="w-100" type="text" id="attendees" name="attendees" value="<?php echo $attendees ?>">
                                         </div>
     
-                                        <button class="w-100 fw-bold text-center" type="submit">MODIFICA</button>
+                                        <button id="avvisoModifica" class="w-100 fw-bold text-center" type="submit">MODIFICA</button>
                                     </form>
                                 </div>
                             </div>

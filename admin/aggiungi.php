@@ -33,7 +33,7 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css' integrity='sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==' crossorigin='anonymous' referrerpolicy='no-referrer' />
     <link rel="stylesheet" href="../styles/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/register.js"></script>
+    <script src="../js/avviso.js"></script>
     <title>Document</title>
 
 </head>
@@ -58,7 +58,7 @@
                             <div class="box-main mt-3">
                                 <div class="p-5">
                                     <form method="POST">
-                                        <input type='hidden' name='action' value='create'>
+                                        <input type='hidden' id="action" name='action' value='create'>
                                             
                                         <div class="mb-4">
                                             <p class="fw-bold"><label for="nome_evento">Inserisci il nome del evento</label></p>
@@ -75,7 +75,7 @@
                                             <input class="w-100" type="text" id="attendees" name="attendees" placeholder="nome@example.com" required>
                                         </div>
     
-                                        <button class="w-100 fw-bold text-center" type="submit">AGGIUNGI</button>
+                                        <button id="avvisoEventi" class="w-100 fw-bold text-center" type="submit">AGGIUNGI</button>
                                     </form>
                                 </div>
                             </div>
