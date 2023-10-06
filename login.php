@@ -29,51 +29,68 @@
 </head>
 
 <body>
-    <header>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12 pad-cust">
-                    <img  class="img-edu"src="image/Group_181.png" alt="ciao">
+    <div class="container-sp">
+        <header>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 pad-cust">
+                        <img  class="img-edu"src="image/Group_181.png" alt="ciao">
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <main>  
-        <div class="container-fluid mt-cm">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="text-center">Hai già un account?</h2>
-                    <div class="d-flex justify-content-center">
-                        <div class="box-main mt-3">
-                            <div class="p-5">
-                                <form action="controller/controllerLogin.php" method="POST">
-                                        
-                                    <div class="mb-5">
-                                        <p class="fw-bold"><label for="email">Inserisci l'e-mail</label></p>
-                                        <input class="w-100" type="email" name="email" placeholder="name@example.com" required>
-                                    </div>
-
-                                    <div>                                        
-                                        <p class="fw-bold"><label for="passwor">Inserisci password</label></p>
-                                        <div class="pass">
-                                            <input class="w-100" type="password" name="passwor" placeholder="Scrivila qui" required><i class="fa-solid fa-eye text-primary"></i>
-                                            <p class="text-danger"><?php echo $messaggioErrore; ?></p>
+        </header>
+        <main>  
+            <div class="container-fluid mt-cm">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="text-center">Hai già un account?</h2>
+                        <div class="d-flex justify-content-center">
+                            <div class="box-main mt-3">
+                                <div class="p-5">
+                                    <form action="controller/controllerLogin.php" method="POST">
+                                            
+                                        <div class="mb-5">
+                                            <p class="fw-bold"><label for="email">Inserisci l'e-mail</label></p>
+                                            <input class="w-100" type="email" name="email" placeholder="name@example.com" required>
                                         </div>
-                                    </div>
-                                    <p class="fw-bold mb-4">Non ti ricordi la password? <a href="#" id="recupera-password">Clicca qui</a> per recuperarla.</p>
-                                    <button class="w-100 fw-bold text-center" type="submit">ACCEDI</button>
-                                </form>
-                                <p class="p-cm text-center">Non hai ancora un profilo? <a class="fw-bold" href="register.php">Registrati</a></p>
+    
+                                        <div>                                        
+                                            <p class="fw-bold"><label for="passwor">Inserisci password</label></p>
+                                            <div class="pass">
+                                                <input class="w-100" type="password" name="passwor" placeholder="Scrivila qui" required><i class="fa-solid fa-eye text-primary"></i>
+                                                <p class="text-danger"><?php echo $messaggioErrore; ?></p>
+                                            </div>
+                                        </div>
+                                        <p class="fw-bold mb-4">Non ti ricordi la password? <a href="#" id="recupera-password">Clicca qui</a> per recuperarla.</p>
+                                        <button class="w-100 fw-bold text-center" type="submit">ACCEDI</button>
+                                    </form>
+                                    <p class="p-cm text-center">Non hai ancora un profilo? <a class="fw-bold" href="register.php">Registrati</a></p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
         <div class="eclipse-1">
             <img src="image/Ellipse_13.png" alt="ellipse-13">
         </div>
-    </main>
+        <div class="eclipse-2">
+            <img src="image/Ellipse_12.png" alt="ellipse-12">
+        </div>
+        <div class="vector-1">
+            <img id="vec-1" src="image/Vector_1.png" alt="vector-1">
+        </div>
+        <div class="vector-4">
+            <img id="vec-4" src="image/Vector_4.png" alt="vector-4">
+        </div>
+        <div class="vector-5">
+            <img id="vec-5" src="image/Vector_5.png" alt="vector-5">
+        </div>
+        <div class="group-201">
+            <img id="group-201" src="image/Group_201.png" alt="group-201">
+        </div>
+    </div>
 </body>
 
 </html>

@@ -3,6 +3,11 @@ body {
     height: 1024px;
 }
 
+.container-sp {
+    width: 100%;
+    position: relative;
+}
+
 /* HEADER */
 
 header {
@@ -25,6 +30,7 @@ header {
 
 main {
     position: relative;
+    z-index: 99;
 }
 
 h2 {
@@ -79,4 +85,67 @@ button {
 
 a {
     color: black;
+}
+
+/* FIGURE */
+
+.eclipse-1 {
+    z-index: 2;
+    top: 318px;
+    position: absolute;
+}
+
+.eclipse-2 {
+    top: 444px;
+    right: 33px;
+    position: absolute;
+}
+
+.vector-1 {
+    z-index: 3;
+    top: 896px;
+    position: absolute;
+}
+
+#vec-1 {
+    width: 100%;
+    height: 152px;
+}
+
+.vector-4 {
+    z-index: 1;
+    width: 100%;
+    top: 549.03px;
+    position: absolute;
+}
+
+#vec-4 {
+    width: 100%;
+    height: 470.33px;
+}
+
+.vector-5 {
+    z-index: 0;
+    width: 100%;
+    height: 226px;
+    top: 704px;
+    position: absolute;
+}
+
+#vec-5 {
+    width: 100%;
+    height: 100%;
+}
+
+.group-201 {
+    z-index: 7;
+    top: 800px;
+    right: 173px;
+    position: absolute;
+
+}
+
+#group-201 {
+    width: 100%;
+    height: 100%;
 }
