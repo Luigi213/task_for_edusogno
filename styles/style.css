@@ -78,7 +78,7 @@ input {
     position: relative;
 }
 
-i {
+i .fa-eye {
     font-size: 20px;
     position: absolute;
     top: 50%;
@@ -124,6 +124,11 @@ a {
 
 .col-sp {
     width: 86%;
+}
+
+table td,
+table th {
+    border: 2px solid rgb(0, 87, 255, 0.18);
 }
 
 /* FIGURE */
