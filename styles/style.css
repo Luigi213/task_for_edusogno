@@ -1,6 +1,9 @@
 body {
     background-color: #D9E5F3;
+    height: 1024px;
 }
+
+/* HEADER */
 
 header {
     background-color: white;
@@ -16,4 +19,64 @@ header {
 .img-edu {
     width: 123.14px;
     height: 51px;
+}
+
+/* MAIN */
+
+main {
+    position: relative;
+}
+
+h2 {
+    color: #134077;
+}
+
+.mt-cm {
+    margin-top: 73px;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid #2D224C;
+}
+
+.box-main {
+    background-color: white;
+    width: 662px;
+    height: 434px;
+    border: 1px;
+    border-style: solid;
+    border-radius: 19px;
+    border-color: #134077;
+}
+
+.pass {
+    position: relative;
+}
+
+i {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+button {
+    all: unset;
+    height: 59px;
+    font-size: 20px;
+    color: white;
+    background-color: #0057FF;
+    border-radius: 11px;
+}
+
+.p-cm {
+    font-size: 13px;
+    margin-top: 30px;
+}
+
+a {
+    color: black;
 }
